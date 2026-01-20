@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Центр притяжения IT-талантов | Образовательные мероприятия</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #600a86;
+            --primary-dark: #efeeee;
+            --secondary: #ff6b35;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #6c757d;
+            --light-gray: #e9ecef;
+            --success: #28a745;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --radius: 8px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            line-height: 1.2;
+        }
+        
+        h2 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        h3 {
+            font-size: 1.7rem;
+            color: var(--primary-dark);
+        }
+
+        h4{
+            font-size: 1.6rem;
+        }
+        p{
+            font-size: 1.4rem;
+        }
+        li{
+            font-size: 1.4rem;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        section {
+            padding: 5rem 0;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: white;
+            padding: 12px 28px;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow);
+        }
+        
+        .btn:hover {
+            background-color: #e05a2b;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(255, 107, 53, 0.3);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            box-shadow: 0 6px 15px rgba(42, 91, 215, 0.3);
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        /* Intro Section */
+        .intro {
+            background-color: var(--light);
+        }
+        
+        .intro-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+        
+        .intro-content p {
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Formats Section */
+        .formats {
+            background-color: white;
+        }
+        
+        .formats-grid {
+            display: flexbox;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .format-card {
+            background-color: white;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+            margin-top: 40px;
+            height: 100%;
+        }
+        
+        .format-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .format-header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        .format-body {
+            padding: 1.5rem;
+        }
+        
+        .format-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+            display: flex;
+  justify-content: center;
+  align-items: center;
+        }
+        
+        .benefits-list {
+            list-style-type: none;
+            margin-top: 1.5rem;
+        }
+        
+        .benefits-list li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.8rem;
+            position: relative;
+        }
+        
+        .benefits-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: bold;
+        }
+        
+        /* Benefits Section */
+        .benefits {
+            background-color: var(--light-gray);
+        }
+        
+        .benefits-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        
+        .benefit-icon {
+            background-color: var(--primary);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 1.3rem;
+        }
+        
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(rgba(42, 91, 215, 0.9), rgba(26, 63, 160, 0.9)), url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+        }
+        
+        .cta h2 {
+            color: white;
+        }
+        
+        .cta p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+        
+        .contact-info {
+            margin-top: 2rem;
+            font-size: 1.1rem;
+        }
+        
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 0.5rem;
+            transition: color 0.3s;
+        }
+        
+        .contact-info a:hover {
+            color: var(--secondary);
+        }
+        
+        .copyright {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        img {
+        width: 300px; /* fixed width */
+        height: auto; /* proportionally adjusts height to maintain aspect ratio */
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            section {
+                padding: 3rem 0;
+            }
+            
+            .formats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <h1>Центр притяжения юных IT-талантов региона!</h1>
+            <p class="subtitle">Cерия практических мероприятий по программированию и разработке для школьников и студентов. Растим новое поколение инноваторов вместе.</p>
+        </div>
+    </header>
+    <!-- Formats Section -->
+    <section class="formats">
+        <div class="container">
+            <h2>Форматы мероприятий</h2>
+            <div class="formats-grid">
+                <!-- Format 1 -->
+                <div class="format-card">
+                    <div class="format-header">
+                        <h3>Кейс-Чемпионат по Программированию</h3>
+                    </div>
+                    <div class="format-body">
+                        <div class="format-icon">
+                            <img class="image_format" data-original="https://static.tildacdn.com/tild6330-6234-4631-b837-393765633732/Clip_path_group_100.svg" src="https://static.tildacdn.com/tild6330-6234-4631-b837-393765633732/Clip_path_group_100.svg" alt="" imgfield="tn_img_1702984648563">
+                        </div>
+                        <p><strong>Не просто решить задачу, а найти лучшее решение для реального бизнеса.</strong></p>
+                        <p>Это уникальный формат, где участники выступают как IT-консультанты. Они получают реалистичную задачу от реальной компании (например, оптимизировать логистику, создать алгоритм рекомендаций, проанализировать данные) и должны предложить комплексное решение с презентацией и обоснованием.</p>
+                        
+                        <ul class="benefits-list">
+                            <li>Связь теории с практикой: Наглядная демонстрация, как знания по математике и информатике применяются в реальном секторе.</li>
+                            <li>Развитие гибких навыков: Участники прокачивают аналитическое мышление, работу в команде, публичные выступления.</li>
+                            <li>Привлечение внимания бизнес-сообщества: Событие интересно компаниям-работодателям</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Format 2 -->
+                <div class="format-card">
+                    <div class="format-header">
+                        <h3>Олимпиада по Программированию</h3>
+                    </div>
+                    <div class="format-body">
+                        <div class="format-icon">
+                            <img class="tn-atom__img t-img loaded" data-original="https://static.tildacdn.com/tild3462-3564-4262-b361-396532323064/Frame_2_1.svg" src="https://static.tildacdn.com/tild3462-3564-4262-b361-396532323064/Frame_2_1.svg" alt="" imgfield="tn_img_1702985809126">
+                        </div>
+                        <p><strong>Классика, возведенная в степень престижа. Выявите самых сильных.</strong></p>
+                        <p>Индивидуальное или командное состязание на решение сложных алгоритмических задач. Это честная битва интеллектов, проверка глубины знаний, скорости мышления и стратегического подхода</p>
+                        
+                        <ul class="benefits-list">
+                            <li>Академический авторитет: Площадка для определения лучших из лучших.</li>
+                            <li>Мотивация для одаренных учащихся: Воёзможность для сильных учеников блеснуть и получить признание.</li>
+                            <li>Подготовка к вузовским олимпиадам: Отличная тренировка для всероссийских и международных соревнований.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Format 3 -->
+                <div class="format-card">
+                    <div class="format-header">
+                        <h3>Гейм-Джем «Создай свою игру за 48 часов»</h3>
+                    </div>
+                    <div class="format-body">
+                        <div class="format-icon">
+                            <img class="tn-atom__img t-img loaded" data-original="https://static.tildacdn.com/tild3462-3564-4262-b361-396532323064/Frame_2_1.svg" src="https://static.tildacdn.com/tild3462-3564-4262-b361-396532323064/Frame_2_1.svg" alt="" imgfield="tn_img_1702985809126">
+                        </div>
+                        <p><strong>Максимум креатива, драйва и практических навыков.</strong></p>
+                        <p>Интенсив, где команды за ограниченное время создают прототип игры на заданную тему. Здесь важны не только программирование, но и геймдизайн, графика, звук и умение упаковать идею. Самый харизматичный и увлекательный формат, который покоряет даже тех, кто не считает себя «программистом».</p>
+                        
+                        <ul class="benefits-list">
+                            <li>Невероятная вовлеченность: Формат-магнит для творческой и технической молодежи.</li>
+                            <li>Междисциплинарность: Объединяет учащихся с разными талантами (художники, дизайнеры, сценаристы, программисты).</li>
+                            <li>Яркий медийный повод: Процесс и результаты дают отличный контент для соцсетей и новостей.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Format 4 -->
+                <div class="format-card">
+                    <div class="format-header">
+                        <h3>Хакатон по Продуктовой Разработке</h3>
+                    </div>
+                    <div class="format-body">
+                        <div class="format-icon">
+                            <img class="tn-atom__img t-img loaded" data-original="https://static.tildacdn.com/tild3366-6664-4231-a561-346339613936/object.svg" src="https://static.tildacdn.com/tild3366-6664-4231-a561-346339613936/object.svg" alt="" imgfield="tn_img_1732627273071">
+                        </div>
+                        <p><strong>От идеи до рабочего прототипа. Будущее продуктовых менеджеров и разработчиков.</strong></p>
+                        <p>Это не просто соревнование по коду. Это симуляция запуска цифрового продукта (приложение, веб-сервис, чат-бот). Команды проходят полный цикл: генерация идеи, проектирование, разработка, дизайн и презентация решения жюри, состоящему из IT-специалистов.</p>
+                        
+                        <ul class="benefits-list">
+                            <li>Самый актуальный и востребованный навык: Продуктовая разработка — ядро современной IT-индустрии.</li>
+                            <li>Комплексный взгляд на проект: Участники видят полную картину создания IT-продукта.</li>
+                            <li>Прямой диалог с индустрией: Привлечение экспертов из IT-компаний в жюри дает участникам бесценную обратную связь и возможность заявить о себе.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits">
+        <div class="container">
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div>
+                        <h4>Методическая работа</h4>
+                        <p>Мы берем на себя методическую разработку,регламенты и привлечение экспертов.</p>
+                    </div>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <div>
+                        <h4>Повышение мотивации учащихся</h4>
+                        <p>Практика, азарт, признание — лучшие стимулы для обучения.</p>
+                    </div>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <div>
+                        <h4>Акцент на профориентации</h4>
+                        <p>Учащиеся на практике пробуют разные IT-роли и определяются с будущей карьерой.</p>
+                    </div>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-newspaper"></i>
+                    </div>
+                    <div>
+                        <h4>Яркий отчетный и PR-материал</h4>
+                        <p>Фото, видео, имена победителей — готовый контент для соцсетей.</p>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta" id="contact">
+        <div class="container">
+            <h2>Давайте создадим будущее вместе!</h2>
+        </div>
+    </section>
+
+    <script>
+        // Плавная прокрутка для якорных ссылок
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Анимация карточек при прокрутке
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Наблюдаем за карточками
+        document.querySelectorAll('.format-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(card);
+        });
+        
+        // Наблюдаем за элементами преимуществ
+        document.querySelectorAll('.benefit-item').forEach(item => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(20px)';
+            item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(item);
+        });
+    </script>
+</body>
+</html>
